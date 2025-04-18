@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Chart Js</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="div-main">
+        <div class="temperatura-umidade">
+            <canvas id="temp-umi"></canvas>
+        </div>
+
+        <div class="media">
+            <canvas id="media"></canvas>
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+    const tempUmi = document.getElementById('temp-umi');
+    const media = document.getElementById('media');
+
+    new Chart(tempUmi, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Temperatura',
+                data: [30, 29, 28, 25, 22, 23],
+                borderWidth: 3,
+                borderColor: '#FE6284',
+                backgroundColor: '#FE6284'
+            },
+
+            {
+                label: 'Umidade',
+                data: [80, 82, 80, 85, 80, 83],
+                borderWidth: 3,
+                borderColor: '#36A2EB',
+                backgroundColor: '#36A2EB'
+            }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+
+    new Chart(media, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+            datasets: [{
+                label: 'Temperatura média',
+                data: [22, 24, 27, 23, 20, 18],
+                borderWidth: 1,
+                borderColor: '#FE6284',
+                backgroundColor: '#FE6284'
+            },
+
+            {
+                label: 'Umidade média',
+                data: [90, 89, 93, 87, 88, 82],
+                borderWidth: 1,
+                borderColor: '#36A2EB',
+                backgroundColor: '#36A2EB'
+            }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</html>
